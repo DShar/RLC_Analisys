@@ -25,7 +25,7 @@
                 <Image x:Name="capacitor" Height="60" Width="40" Source="/images/capacitor.png" MouseMove="Img_MouseMove"  Margin="25,0,35.8,0" RenderTransformOrigin="0.953,0.597"/>
             </ToolBarPanel>
         </Border>
-        <Grid MouseDown="Grid_MouseDown">
+        <Grid MouseEnter="Grid_MouseEnter">
             <Path Data="M57,167 L57,47" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="121" Margin="57,47,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="1"/>
             <Path Data="M57,47 L217,47" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="1" Margin="57,47,0,0" Stretch="Fill" Stroke="Black" VerticalAlignment="Top" Width="161"/>
             <Rectangle  HorizontalAlignment="Left" Height="60" Margin="218,27,0,0" Stroke="Black" VerticalAlignment="Top" Width="179"/>
@@ -83,21 +83,21 @@
                 </Image.RenderTransform>
             </Image>
             <Label x:Name="first_lb" Target="{Binding ElementName=first_tb}" Content="" HorizontalAlignment="Left" Margin="223,46,0,0" VerticalAlignment="Top" FontSize="9" FontFamily="Comic Sans MS" MouseDoubleClick="Label_MouseDoubleClick"/>
-            <TextBox x:Name="first_tb" HorizontalAlignment="Left" Height="23" Margin="223,46,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" FontFamily="Comic Sans MS" FontSize="8" Visibility="Hidden"/>
+            <TextBox x:Name="first_tb" HorizontalAlignment="Left" Height="23" Margin="223,46,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="50" FontFamily="Comic Sans MS" FontSize="8" Visibility="Hidden"/>
             <Label x:Name="third_lb" Target="{Binding ElementName=third_tb}" Content="" HorizontalAlignment="Left" Margin="288,61,0,0" VerticalAlignment="Top" FontSize="9" FontFamily="Comic Sans MS" MouseDoubleClick="Label_MouseDoubleClick"/>
-            <TextBox x:Name="third_tb" HorizontalAlignment="Left" Height="23" Margin="288,61,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" FontFamily="Comic Sans MS" FontSize="8" Visibility="Hidden"/>
+            <TextBox x:Name="third_tb" HorizontalAlignment="Left" Height="23" Margin="288,61,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="50" FontFamily="Comic Sans MS" FontSize="8" Visibility="Hidden"/>
             <Label x:Name="second_lb" Target="{Binding ElementName=second_tb}" Content="" HorizontalAlignment="Left" Margin="342,46,0,0" VerticalAlignment="Top" FontSize="9" FontFamily="Comic Sans MS" MouseDoubleClick="Label_MouseDoubleClick"/>
-            <TextBox x:Name="second_tb" HorizontalAlignment="Left" Height="23" Margin="342,46,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" FontFamily="Comic Sans MS" FontSize="8" Visibility="Hidden"/>
+            <TextBox x:Name="second_tb" HorizontalAlignment="Left" Height="23" Margin="342,46,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="50" FontFamily="Comic Sans MS" FontSize="8" Visibility="Hidden"/>
             <Label x:Name="forth_lb" Target="{Binding ElementName=forth_tb}" Content="" HorizontalAlignment="Left" Margin="218,177,0,0" VerticalAlignment="Top" FontSize="9" FontFamily="Comic Sans MS" MouseDoubleClick="Label_MouseDoubleClick"/>
-            <TextBox x:Name="forth_tb" HorizontalAlignment="Left" Height="23" Margin="218,177,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" FontFamily="Comic Sans MS" FontSize="8" Visibility="Hidden"/>
+            <TextBox x:Name="forth_tb" HorizontalAlignment="Left" Height="23" Margin="218,177,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="50" FontFamily="Comic Sans MS" FontSize="8" Visibility="Hidden"/>
             <Label x:Name="fifth_lb" Target="{Binding ElementName=fifth_tb}" Content="" HorizontalAlignment="Left" Margin="254,259,0,0" VerticalAlignment="Top" FontSize="9" FontFamily="Comic Sans MS" MouseDoubleClick="Label_MouseDoubleClick"/>
-            <TextBox x:Name="fifth_tb" HorizontalAlignment="Left" Height="23" Margin="254,259,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" FontFamily="Comic Sans MS" FontSize="8" Visibility="Hidden"/>
+            <TextBox x:Name="fifth_tb" HorizontalAlignment="Left" Height="23" Margin="254,259,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="50" FontFamily="Comic Sans MS" FontSize="8" Visibility="Hidden"/>
             <Label x:Name="six_lb" Target="{Binding ElementName=six_tb}" Content="" HorizontalAlignment="Left" Margin="570,260,0,0" VerticalAlignment="Top" FontSize="9" FontFamily="Comic Sans MS" MouseDoubleClick="Label_MouseDoubleClick"/>
-            <TextBox x:Name="six_tb" HorizontalAlignment="Left" Height="23" Margin="570,260,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" FontFamily="Comic Sans MS" FontSize="8" Visibility="Hidden"/>
+            <TextBox x:Name="six_tb" HorizontalAlignment="Left" Height="23" Margin="570,260,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="50" FontFamily="Comic Sans MS" FontSize="8" Visibility="Hidden"/>
             <Label x:Name="seven_lb" Target="{Binding ElementName=seven_tb}" Content="" HorizontalAlignment="Left" Margin="452,333,0,0" VerticalAlignment="Top" FontSize="9" FontFamily="Comic Sans MS" MouseDoubleClick="Label_MouseDoubleClick"/>
-            <TextBox x:Name="seven_tb" HorizontalAlignment="Left" Height="23" Margin="452,333,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" FontFamily="Comic Sans MS" FontSize="8" Visibility="Hidden"/>
+            <TextBox x:Name="seven_tb" HorizontalAlignment="Left" Height="23" Margin="452,333,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="50" FontFamily="Comic Sans MS" FontSize="8" Visibility="Hidden"/>
             <Label x:Name="eight_lb" Target="{Binding ElementName=eight_tb}" Content="" HorizontalAlignment="Left" Margin="439,261,0,0" VerticalAlignment="Top" FontSize="9" FontFamily="Comic Sans MS" MouseDoubleClick="Label_MouseDoubleClick"/>
-            <TextBox x:Name="eight_tb" HorizontalAlignment="Left" Height="23" Margin="439,261,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" FontFamily="Comic Sans MS" FontSize="8" Visibility="Hidden"/>
+            <TextBox x:Name="eight_tb" HorizontalAlignment="Left" Height="23" Margin="439,261,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="50" FontFamily="Comic Sans MS" FontSize="8" Visibility="Hidden"/>
 
         </Grid>
     </DockPanel>

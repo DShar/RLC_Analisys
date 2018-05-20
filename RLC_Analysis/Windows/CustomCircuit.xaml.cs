@@ -106,7 +106,7 @@ namespace RLC_Analysis.Windows
             tb.Visibility = Visibility.Visible;
         }
 
-        private void Grid_MouseDown(object sender, MouseEventArgs e)
+        private void Grid_MouseEnter(object sender, MouseEventArgs e)
         {
             if (first_tb.IsVisible)
             {
