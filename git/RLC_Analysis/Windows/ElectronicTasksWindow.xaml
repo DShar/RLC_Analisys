@@ -1,0 +1,73 @@
+﻿<Window x:Class="RLC_Analysis.Windows.ElectronicTasksWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RLC_Analysis.Windows"
+        mc:Ignorable="d"
+        Title="ElectronicTasksWindow" Height="500" Width="900" MaxHeight="500" MaxWidth="900" MinHeight="500" MinWidth="900" ResizeMode="NoResize">
+    <Window.CommandBindings>
+        <CommandBinding Command="Open" Executed="MainMenu_Executed" />
+    </Window.CommandBindings>
+    <DockPanel>
+        <ToolBar DockPanel.Dock="Top">
+            <Button Command="Open">Главное меню</Button>
+        </ToolBar>
+        <TabControl x:Name="Tasks" DockPanel.Dock="Top">
+            <TabItem x:Name="firstTask">
+                <TabItem.Header>
+                    <TextBlock Margin="2" FontSize="14">Задача 1</TextBlock>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <Grid>
+                        <TextBlock TextWrapping="Wrap" Margin="0,0,-0.4,-0.2"><Run FontSize="20" Foreground="Black" FontWeight="Bold" Text="Комплексные сопротивления"/><LineBreak /><Run Foreground="Black" FontSize="16" Text="В приведённой схеме рассчитайте комплексные сопротивлен"/><InlineUIContainer/><Run Foreground="Black" FontSize="16" Text="ия элементов. Круговая частота w=314 рад/с"/><InlineUIContainer/><LineBreak/><Run Foreground="Black" FontStyle="Italic" FontSize="14" Text="(Обратите внимание при вводе ответа, мнимая единица должна быть записана как j.)"/></TextBlock>
+                        <Image HorizontalAlignment="Left" Height="301" Margin="31,98,0,0" VerticalAlignment="Top" Width="390" Source="/images/Task1.png"/>
+                        <TextBlock TextWrapping="Wrap" Margin="426,77,103.2,259.8" ><Run Foreground="Black" FontSize="16" Text="R2=20 Ом, R3=40 Ом, L1=64 мГн, L3 = 128 мГн, С2 = 159 мкФ."/></TextBlock>
+                        <Label Margin="426,134,394.2,238.8" Content=" ZR2 =" FontSize="16" FontWeight="Bold"/>
+                        <TextBox x:Name="R2" Margin="493,134,171.2,240.8" Height="34" FontSize="16"></TextBox>
+                        <Label Margin="426,184,394.2,188.8" Content=" ZR3 =" FontSize="16" FontWeight="Bold" RenderTransformOrigin="0.531,-0.381"/>
+                        <TextBox x:Name="R3" FontSize="16" Height="34" Margin="493,184,171.2,190.8"/>
+                        <TextBox x:Name="L1" FontSize="16" Height="34" Margin="493,235,171.2,139.8"/>
+                        <TextBox x:Name="L3" FontSize="16" Height="34" Margin="493,286,171.2,88.8"/>
+                        <TextBox x:Name="C2" FontSize="16" Height="34" Margin="493,338,171.2,36.8"/>
+                        <Label Margin="426,235,394.2,137.8" Content=" ZL1 =" FontSize="16" FontWeight="Bold" RenderTransformOrigin="0.531,-0.381"/>
+                        <Label Margin="426,286,394.2,86.8" Content=" ZL3 =" FontSize="16" FontWeight="Bold" RenderTransformOrigin="0.531,-0.381"/>
+                        <Label Margin="426,338,394.2,34.8" Content=" ZC2 =" FontSize="16" FontWeight="Bold" RenderTransformOrigin="0.531,-0.381"/>
+
+                        <Button Content="Записать ответ" Width="106" Margin="772,374,10,9.8" Click="Button_Click"/>
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem Name="secondTask" IsEnabled="False">
+                <TabItem.Header>
+                    <TextBlock Margin="2" FontSize="14">Задача 2</TextBlock>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="106*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock TextWrapping="Wrap" Margin="0,0,-1,-0.2" Grid.ColumnSpan="2"><Run FontSize="20" Foreground="Black" FontWeight="Bold" Text="Трёхфазные схемы"/><LineBreak /><Run Foreground="Black" FontSize="16" Text="Дана симметричная цепь, где известны значения фазных ЭДС. eA(t) = 100sin(wt),B, eB(t) = 100sin(wt -120°),B,"/><InlineUIContainer/><LineBreak/><Run Foreground="Black" FontSize="16" Text="eC(t) = 100sin(wt+120°),B. Рассчитайте в комплексной форме токи в ветвях."/><InlineUIContainer/><LineBreak/><Run Foreground="Black" FontStyle="Italic" FontSize="14" Text="(Обратите внимание при вводе ответа, мнимая единица должна быть записана как j.)"/></TextBlock>
+                        <Image HorizontalAlignment="Left" Height="301" Margin="31,98,0,0" VerticalAlignment="Top" Width="390" Source="/images/Task2.png" Grid.ColumnSpan="2"/>
+                        <TextBlock TextWrapping="Wrap" Margin="386.302,98,103,273.8" Grid.Column="1" ><Run Foreground="Black" FontSize="16" Text="R="/><Run Foreground="Black" FontSize="16" Text="72,26"/><Run Foreground="Black" FontSize="16" Text=" Ом, L="/><Run Foreground="Black" FontSize="16" Text="0,01 Гн"/><Run Foreground="Black" FontSize="16" Text=", "/><Run Foreground="Black" FontSize="16" Text="С=5"/><Run Foreground="Black" FontSize="16" Text="e-6"/><Run Foreground="Black" FontSize="16" Text=" Ф"/><Run Foreground="Black" FontSize="16" Text=", f = 340 "/><Run Foreground="Black" FontSize="16" Text="Гц."/></TextBlock>
+                        <Label Margin="386.302,184,394,188.8" Content=" Ia =" FontSize="16" FontWeight="Bold" RenderTransformOrigin="0.531,-0.381" Grid.Column="1"/>
+                        <TextBox x:Name="Ia"  FontSize="16" Height="34" Margin="439.302,184,345,190.8" Grid.Column="1"/>
+                        <TextBox x:Name="Ib"  FontSize="16" Height="34" Margin="439.302,235,345,139.8" Grid.Column="1"/>
+                        <TextBox x:Name="Ic" FontSize="16" Height="34" Margin="439.302,286,345,88.8" Grid.Column="1"/>
+                        <Label Margin="386.302,235,394,137.8" Content=" Ib =" FontSize="16" FontWeight="Bold" RenderTransformOrigin="0.531,-0.381" Grid.Column="1"/>
+                        <Label Margin="386.302,286,394,86.8" Content=" Ic =" FontSize="16" FontWeight="Bold" RenderTransformOrigin="0.531,-0.381" Grid.Column="1"/>
+                        <TextBox x:Name="degree_Ia" FontSize="16" Margin="525.302,164,256,209.8" Grid.Column="1"/>
+                        <Label Content="e" FontSize="16" Margin="508.302,184,308,190.8" Grid.Column="1"></Label>
+
+                        <Button Content="Записать ответ" Width="106" Margin="732.302,374,10,9.8" Click="Button_Click_1" Grid.Column="1"/>
+                        <Label Content="e" FontSize="16" Margin="508.302,235,308,139.8" Grid.Column="1"/>
+                        <Label Content="e" FontSize="16" Margin="508.302,288,308,86.8" Grid.Column="1"/>
+                        <TextBox x:Name="degree_Ib" FontSize="16" Margin="525.302,215,256,158.8" Grid.Column="1"/>
+                        <TextBox x:Name="degree_Ic" FontSize="16" Margin="525.302,269,256,104.8" Grid.Column="1"/>
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
+</Window>

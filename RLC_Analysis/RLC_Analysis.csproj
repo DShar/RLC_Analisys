@@ -79,6 +79,7 @@
     <Compile Include="Code\ElementTypes.cs" />
     <Compile Include="Code\PowerSupply.cs" />
     <Compile Include="Model\Circuit.cs" />
+    <Compile Include="Model\Complex.cs" />
     <Compile Include="Model\Element.cs" />
     <Compile Include="Model\ImageData.cs" />
     <Compile Include="Model\RLCSchemeModel.cs" />
@@ -98,6 +99,9 @@
     <Compile Include="Serialization\SerializeScheme.cs" />
     <Compile Include="Windows\Parameters.xaml.cs">
       <DependentUpon>Parameters.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Results.xaml.cs">
+      <DependentUpon>Results.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\SeriesCircuitWindow.xaml.cs">
       <DependentUpon>SeriesCircuitWindow.xaml</DependentUpon>
@@ -131,6 +135,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\Parameters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Results.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
