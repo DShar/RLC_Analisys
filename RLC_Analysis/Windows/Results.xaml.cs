@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using RLC_Analysis.Model;
+using RLC_Analysis.Code;
 
 namespace RLC_Analysis.Windows
 {
@@ -21,11 +22,13 @@ namespace RLC_Analysis.Windows
     public partial class Results : Window
     {
         protected Circuit circuit;
+        protected double w;
 
         public Results(Circuit circ)
         {
             InitializeComponent();
             circuit = circ;
+            w = circuit.power.w;
 
             WriteResults();
         }
@@ -55,10 +58,27 @@ namespace RLC_Analysis.Windows
             foreach( Element el in circuit.elements)
             {
                 m2 += el.number;
+
+                el.setResistance(w, el.type);
             }
             MessageBox.Show(m1 + "      \n" + m2);
 
+            circuit.Resistance1 = ((Complex.Sum(circuit.elements[0].Resistance, circuit.elements[1].Resistance))
+                * circuit.elements[2].Resistance) /
+                (Complex.Sum(circuit.elements[0].Resistance, circuit.elements[1].Resistance, circuit.elements[2].Resistance));
 
+            Resistanse_1.Text += circuit.Resistance1.ToString();
+
+            circuit.Resistance2 = ((circuit.elements[3].Resistance * circuit.elements[4].Resistance)/
+                (Complex.Sum(circuit.elements[3].Resistance,  circuit.elements[4].Resistance)));
+
+            Resistanse_2.Text += circuit.Resistance2.ToString();
+
+            circuit.Resistance3 = ((Complex.Sum(circuit.elements[5].Resistance, circuit.elements[6].Resistance))
+                * circuit.elements[7].Resistance) /
+                (Complex.Sum(circuit.elements[5].Resistance, circuit.elements[6].Resistance, circuit.elements[7].Resistance));
+
+            Resistanse_3.Text += circuit.Resistance3.ToString();
 
         }
     }
