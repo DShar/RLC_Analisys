@@ -17,6 +17,14 @@ namespace RLC_Analysis.Model
         protected double Current_sum { get; set; }
         protected double Resistance_sum { get; set; }
 
+        public Complex Resistance1;
+        public Complex Resistance2;
+        public Complex Resistance3;
+
+        public PowerSupply I1;
+        public PowerSupply I2;
+        public PowerSupply I3;
+
         public Circuit()
         {
             elements = new List<Element>();

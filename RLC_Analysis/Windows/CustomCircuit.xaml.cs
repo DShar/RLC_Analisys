@@ -724,7 +724,7 @@ namespace RLC_Analysis.Windows
 
             if(isCorrect)
             {
-                Results resultsWindow = new Results();
+                Results resultsWindow = new Results(circuit);
                 resultsWindow.Owner = this;
                 resultsWindow.Show();
             }

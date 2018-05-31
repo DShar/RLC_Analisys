@@ -98,7 +98,34 @@
             <TextBox x:Name="seven_tb" HorizontalAlignment="Left" Height="23" Margin="452,333,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="50" FontFamily="Comic Sans MS" FontSize="8" Visibility="Hidden"/>
             <Label x:Name="eight_lb" Target="{Binding ElementName=eight_tb}" Content="" HorizontalAlignment="Left" Margin="439,261,0,0" VerticalAlignment="Top" FontSize="9" FontFamily="Comic Sans MS" MouseDoubleClick="Label_MouseDoubleClick"/>
             <TextBox x:Name="eight_tb" HorizontalAlignment="Left" Height="23" Margin="439,261,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="50" FontFamily="Comic Sans MS" FontSize="8" Visibility="Hidden"/>
-
+            <TextBlock HorizontalAlignment="Left" Margin="125,27,0,0" VerticalAlignment="Top" FontFamily="Comic Sans MS">
+                <Run>I</Run>
+                <Run FontSize="8">1</Run>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="546,185,0,0" VerticalAlignment="Top" FontFamily="Comic Sans MS" RenderTransformOrigin="0.5,0.5">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+                <Run>I</Run>
+                <Run FontSize="8">2</Run>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="372,109,0,0" VerticalAlignment="Top" FontFamily="Comic Sans MS" RenderTransformOrigin="-0.467,0.055">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="325"/>
+                        <TranslateTransform X="-1.384" Y="11.082"/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+                <Run>I</Run>
+                <Run FontSize="8">3</Run>
+            </TextBlock>
         </Grid>
     </DockPanel>
 </Window>
