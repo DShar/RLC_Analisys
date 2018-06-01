@@ -80,6 +80,48 @@ namespace RLC_Analysis.Windows
 
             Resistanse_3.Text += circuit.Resistance3.ToString();
 
+            //Расчёт амплитуды контурных токов
+            //I(I)max = E / Zэкв  Zэкв - tempResistance1
+            //I(II)max = E / Zдел Zдел - tempResistance2
+
+            Complex tempResistance1 = new Complex();
+            tempResistance1 = circuit.Resistance3 + circuit.Resistance1 +
+                ((circuit.Resistance1 * circuit.Resistance3) / circuit.Resistance2);
+
+            Complex tempResistance2 = new Complex();
+            Complex Constant1 = new Complex(1, 0);  // 1 в виде комплексного числа (1+0i)
+            tempResistance2 = (circuit.Resistance1 + circuit.Resistance2) / (Constant1 + (circuit.Resistance2 / tempResistance1));
+
+
+            double Emax = circuit.power.Amplitude;
+
+            //Ток вo 2 контуре
+            circuit.I3 = new PowerSupply(Emax / Complex.Abs(tempResistance1), circuit.power.w / (2 * System.Math.PI), circuit.power.Phase + System.Math.Atan2(tempResistance1.Imaginary(), tempResistance1.Real()));
+            Amperage_3.Text += circuit.I3.getValue();
+
+            //Ток в первом контуре
+            circuit.I1 = new PowerSupply(Emax / Complex.Abs(tempResistance2), circuit.power.w / (2 * System.Math.PI), circuit.power.Phase + System.Math.Atan2(tempResistance2.Imaginary(), tempResistance2.Real()));
+            Amperage_1.Text += circuit.I1.getValue();
+
+            //Ток во второой ветви I2=I1-I3;
+            double a1, b1, a2, b2, a3, b3, Imax2, phase2;
+
+            a1 = System.Math.Sqrt((circuit.I1.Amplitude * circuit.I1.Amplitude) / (1 + System.Math.Tan((circuit.I1.Phase * System.Math.PI) / 180) * System.Math.Tan((circuit.I1.Phase * System.Math.PI) / 180)));
+            b1 = a1 * System.Math.Tan((circuit.I1.Phase * System.Math.PI) / 180);
+
+            a3 = System.Math.Sqrt((circuit.I3.Amplitude * circuit.I3.Amplitude) / (1 + System.Math.Tan((circuit.I3.Phase * System.Math.PI) / 180) * System.Math.Tan((circuit.I3.Phase * System.Math.PI) / 180)));
+            b3 = a3 * System.Math.Tan((circuit.I3.Phase * System.Math.PI) / 180);
+
+            a2 = a1 - a3;
+            b2 = b1 - b3;
+
+            Complex temp = new Complex(a2, b2);
+            Imax2 = Complex.Abs(temp);
+            phase2 = System.Math.Atan2(b2,a2);
+
+            circuit.I2 = new PowerSupply(Imax2, circuit.power.w / (2 * System.Math.PI), phase2);
+            Amperage_2.Text += circuit.I2.getValue();
+
         }
     }
 }
