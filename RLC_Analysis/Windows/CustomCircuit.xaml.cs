@@ -685,7 +685,7 @@ namespace RLC_Analysis.Windows
 
         private void GetResult_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            MessageBox.Show("Добавлено " + circuit.elements.Count + " элементов.");
+            //MessageBox.Show("Добавлено " + circuit.elements.Count + " элементов.");
             int index = 0;
             bool isCorrect = true;
             foreach (Element el in circuit.elements)
@@ -720,6 +720,11 @@ namespace RLC_Analysis.Windows
                         break;
                 }
                
+            }
+            if(voltage_label.Content == null)
+            {
+                isCorrect = false;
+                MessageBox.Show("Не установлены параметры источника питания!");
             }
 
             if(isCorrect)

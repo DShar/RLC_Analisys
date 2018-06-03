@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using RadioButton = System.Windows.Controls.RadioButton;
+using MessageBox = System.Windows.MessageBox;
 using RLC_Analysis.Model;
 using RLC_Analysis.Code;
+using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace RLC_Analysis.Windows
 {
@@ -31,6 +31,15 @@ namespace RLC_Analysis.Windows
             w = circuit.power.w;
 
             WriteResults();
+
+            // Все графики находятся в пределах области построения ChartArea, создадим ее
+            chart.ChartAreas.Add(new ChartArea("Default"));
+            chart.Series.Add(new Series("Series1"));
+            chart.Series["Series1"].ChartArea = "Default";
+            chart.Series["Series1"].ChartType = SeriesChartType.Spline;
+
+            I2_radio.IsChecked = true;
+
         }
 
         private void MainMenu_Executed(object sender, ExecutedRoutedEventArgs e)
@@ -61,7 +70,7 @@ namespace RLC_Analysis.Windows
 
                 el.setResistance(w, el.type);
             }
-            MessageBox.Show(m1 + "      \n" + m2);
+           // MessageBox.Show(m1 + "      \n" + m2);
 
             circuit.Resistance1 = ((Complex.Sum(circuit.elements[0].Resistance, circuit.elements[1].Resistance))
                 * circuit.elements[2].Resistance) /
@@ -122,6 +131,91 @@ namespace RLC_Analysis.Windows
             circuit.I2 = new PowerSupply(Imax2, circuit.power.w / (2 * System.Math.PI), phase2);
             Amperage_2.Text += circuit.I2.getValue();
 
+        }
+
+        public void WrightGraph(GraphTypes type)
+        {
+            double startTime_value;
+            double endTime_value;
+            double step_value;
+
+            // Добавим линию, и назначим ее в ранее созданную область "Default"
+
+            chart.Series["Series1"].Points.Clear();
+            
+            if(startTime.Text == null || startTime.Text == string.Empty || !Double.TryParse(startTime.Text,out double result))
+            {
+                startTime_value = 0;
+            }
+            else
+            {
+                startTime_value = result;
+            }
+
+            if (endTime.Text == null || endTime.Text == string.Empty || !Double.TryParse(endTime.Text, out double result_end))
+            {
+                endTime_value = 0.05;
+            }
+            else
+            {
+                endTime_value = result_end;
+            }
+
+            if(step.Text == null || step.Text == string.Empty || !Double.TryParse(step.Text,out double result_step))
+            {
+                step_value = 0.001;
+            }
+            else
+            {
+                step_value = result_step;
+            }
+
+            switch (type)
+            {
+                case GraphTypes.I1:
+                    for(double i = startTime_value; i <= endTime_value; i = i+ step_value)
+                    {
+                        chart.Series["Series1"].Points.AddXY(i, circuit.I1.Amplitude * Math.Sin(circuit.I1.w * i + ((circuit.I1.Phase * Math.PI) / 180)));
+                    }
+                    break;
+                case GraphTypes.I2:
+                    for (double i = startTime_value; i <= endTime_value; i = i + step_value)
+                    {
+                        chart.Series["Series1"].Points.AddXY(i, circuit.I2.Amplitude * Math.Sin(circuit.I2.w * i + ((circuit.I2.Phase * Math.PI) / 180)));
+                    }
+                    break;
+                case GraphTypes.I3:
+                    for (double i = startTime_value; i <= endTime_value; i = i + step_value)
+                    {
+                        chart.Series["Series1"].Points.AddXY(i, circuit.I3.Amplitude * Math.Sin(circuit.I3.w * i + ((circuit.I3.Phase * Math.PI) / 180)));
+                    }
+                    break;
+            }
+        }
+
+        private void Radio_Checked(object sender, RoutedEventArgs e)
+        {
+            RadioButton pressed = (RadioButton)sender;
+            if(pressed.Content!=null)
+            {
+                if (pressed.Content.ToString() == "I1")
+                {
+                    WrightGraph(GraphTypes.I1);
+                }
+                else if (pressed.Content.ToString() == "I2")
+                {
+                    WrightGraph(GraphTypes.I2);
+                }
+                else if (pressed.Content.ToString() == "I3")
+                {
+                    WrightGraph(GraphTypes.I3);
+                }
+            }
+            else
+            {
+                WrightGraph(GraphTypes.I1);
+            }
+            
         }
     }
 }

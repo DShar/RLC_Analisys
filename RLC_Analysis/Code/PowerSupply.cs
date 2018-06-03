@@ -34,7 +34,19 @@ namespace RLC_Analysis.Code
 
             public string getValue()
             {
-                return (Amplitude.ToString() + "*sin( " + w.ToString("#.##") + "t + " + Phase.ToString() + ")");
+                if (Phase == 0.0)
+                {
+                     return (Amplitude.ToString("#.##") + "*sin( " + w.ToString("#.##") + "t)");
+                }
+                else
+                {
+                    return (Amplitude.ToString("#.##") + "*sin( " + w.ToString("#.##") + "t + " + Phase.ToString("#.##") + ")");
+                }
             }
+
+        public override string ToString()
+        {
+            return getValue();
+        }
     }
 }

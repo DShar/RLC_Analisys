@@ -97,7 +97,23 @@ namespace RLC_Analysis.Model
 
         public override string ToString()
         {
-            return this.Re.ToString("#.##") + (this.Im < 0 ? " " : " + ") + this.Im.ToString("#.##") + 'i';
+            if(Re == 0.0 && Im == 0.0)
+            {
+                return "0";
+            }
+            else if(Im == 0.0)
+            {
+                return Re.ToString("#.##");
+            }
+            else if(Re == 0.0 || Re == 0)
+            {
+                return this.Im.ToString("#.##") + 'i';
+            }
+            else
+            {
+                return this.Re.ToString("#.##") + (this.Im < 0 ? " " : " + ") + this.Im.ToString("#.##") + 'i';
+            }
+           
         }
     }
 }
