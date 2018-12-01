@@ -25,6 +25,7 @@
                 <TextBlock>Задачи по электротехнике</TextBlock>
                 <TextBlock>Задачи с логическими схемами</TextBlock>
                 <TextBlock>Моделирование электрической схемы</TextBlock>
+                <TextBlock>Математические модели электрических схем</TextBlock>
             </ComboBox>
             <Button Name="Next_btn" Content="Далее" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="Next_btn_Click" IsDefault="True" RenderTransformOrigin="0,0" BorderThickness="1"/>
         </Grid>

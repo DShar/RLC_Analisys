@@ -26,6 +26,7 @@ namespace RLC_Analysis.Windows
 
         public Results(Circuit circ)
         {
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();
             circuit = circ;
             w = circuit.power.w;

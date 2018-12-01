@@ -34,7 +34,8 @@ namespace RLC_Analysis
 
         public ParallelCircuitWindow()
         {
-             InitializeComponent();
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+            InitializeComponent();
 
             parameters_labels[0] = this.firstLabel;
             parameters_labels[1] = this.secondLabel;

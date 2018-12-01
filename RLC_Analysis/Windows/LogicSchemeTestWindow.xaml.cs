@@ -33,6 +33,7 @@ namespace RLC_Analysis.Windows
         
         public LogicSchemeTestWindow()
         {
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();
 
             table_textBoxes[0] = table_tb1;

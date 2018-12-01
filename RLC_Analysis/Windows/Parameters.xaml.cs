@@ -31,6 +31,7 @@ namespace RLC_Analysis.Windows
 
         public Parameters(ElementTypes type, CircuitTypes circ_type)
         {
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();
 
             elementType = type;

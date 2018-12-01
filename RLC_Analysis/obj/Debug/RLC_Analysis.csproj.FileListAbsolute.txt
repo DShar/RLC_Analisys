@@ -84,3 +84,7 @@ C:\Users\User\source\repos\RLC_Analysis\git\RLC_Analysis\obj\Debug\RLC_Analysis.
 C:\Users\User\source\repos\RLC_Analysis\git\RLC_Analysis\obj\Debug\RLC_Analysis.pdb
 C:\Users\User\source\repos\RLC_Analysis\RLC_Analysis\obj\Debug\Windows\Results.g.cs
 C:\Users\User\source\repos\RLC_Analysis\RLC_Analysis\obj\Debug\Windows\Results.baml
+C:\Users\User\source\repos\RLC_Analysis\RLC_Analysis\obj\Debug\Windows\MathModeling.g.cs
+C:\Users\User\source\repos\RLC_Analysis\RLC_Analysis\obj\Debug\Windows\MathModeling.baml
+C:\Users\User\source\repos\RLC_Analysis\RLC_Analysis\obj\Debug\Windows\MatrixWindow.g.cs
+C:\Users\User\source\repos\RLC_Analysis\RLC_Analysis\obj\Debug\Windows\MatrixWindow.baml

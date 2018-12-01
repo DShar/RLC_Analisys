@@ -87,6 +87,9 @@ namespace RLC_Analysis
                 case 4:
                     win = new CustomCircuit();
                     break;
+                case 5:
+                    win = new MathModeling();
+                    break;
                 default:
                     win = new MainWindow();
                     break;

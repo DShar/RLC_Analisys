@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\User\source\repos\RLC_Analysis\RLC_Analysis\App.xaml
-8-1731792968
+10157824612
 
-23306413388
+25-287102446
 241111120
-MainWindow.xaml;Windows\CustomCircuit.xaml;Windows\ElectronicTasksWindow.xaml;Windows\LogicSchemeTestWindow.xaml;Windows\ParallelCircuitWindow.xaml;Windows\Parameters.xaml;Windows\Results.xaml;Windows\SeriesCircuitWindow.xaml;
+MainWindow.xaml;Windows\CustomCircuit.xaml;Windows\ElectronicTasksWindow.xaml;Windows\LogicSchemeTestWindow.xaml;Windows\MathModeling.xaml;Windows\MatrixWindow.xaml;Windows\ParallelCircuitWindow.xaml;Windows\Parameters.xaml;Windows\Results.xaml;Windows\SeriesCircuitWindow.xaml;
 
 False
 

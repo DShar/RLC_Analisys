@@ -21,6 +21,7 @@ namespace RLC_Analysis.Windows
     {
         public ElectronicTasksWindow()
         {
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();
         }
 

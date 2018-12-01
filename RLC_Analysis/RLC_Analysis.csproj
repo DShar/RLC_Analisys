@@ -98,6 +98,12 @@
     <Compile Include="Windows\LogicSchemeTestWindow.xaml.cs">
       <DependentUpon>LogicSchemeTestWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\MathModeling.xaml.cs">
+      <DependentUpon>MathModeling.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\MatrixWindow.xaml.cs">
+      <DependentUpon>MatrixWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\ParallelCircuitWindow.xaml.cs">
       <DependentUpon>ParallelCircuitWindow.xaml</DependentUpon>
     </Compile>
@@ -133,6 +139,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\LogicSchemeTestWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\MathModeling.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\MatrixWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

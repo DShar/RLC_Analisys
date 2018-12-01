@@ -26,6 +26,7 @@ namespace RLC_Analysis.Windows
         
         public CustomCircuit()
         {
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();
             circuit = new Circuit();
 
