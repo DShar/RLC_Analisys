@@ -10,7 +10,11 @@
         <TabControl HorizontalAlignment="Left" Height="420" Margin="0,0,-0.4,0" VerticalAlignment="Top" Width="794">
             <TabItem x:Name="OKB" Header="ОКБ" Height="22" Margin="-2,-2,-2.4,0" VerticalAlignment="Bottom">
                 <Grid Background="White">
-                    
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="16*"/>
+                        <ColumnDefinition Width="181*"/>
+                    </Grid.ColumnDefinitions>
+
                 </Grid>
             </TabItem>
             <TabItem x:Name="ROKB" Header="РОКБ">

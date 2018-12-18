@@ -97,8 +97,16 @@ namespace RLC_Analysis.Windows
                 }
                 currentRow.Cells.Add(new TableCell(new Paragraph(new Run("0"))));
 
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("|"))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("U1"))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("|"))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("    "))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("|"))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("E*Yвн"))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("|"))));
+
             //-------------------------------------------------------2 ROW-----------------------------------------------------------------//
-                table1.RowGroups[0].Rows.Add(new TableRow());
+            table1.RowGroups[0].Rows.Add(new TableRow());
                 currentRow = table1.RowGroups[0].Rows[1];
                 switch (circuit.elements.First(e => e.number == 1).type)
                 {
@@ -163,6 +171,14 @@ namespace RLC_Analysis.Windows
                     break;
             }
 
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("|"))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("U2"))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("|"))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("  =  "))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("|"))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("0"))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("|"))));
+
             //----------------------------------------------------3 ROW----------------------------------------------------------------//
             table1.RowGroups[0].Rows.Add(new TableRow());
             currentRow = table1.RowGroups[0].Rows[2];
@@ -207,6 +223,15 @@ namespace RLC_Analysis.Windows
                     break;
             }
             currentRow.Cells.Add(new TableCell(new Paragraph(new Run(element3))));
+
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("|"))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("U3"))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("|"))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("    "))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("|"))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("0"))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("|"))));
+           
             OKB.Content = oDoc;
         }
 
@@ -216,19 +241,47 @@ namespace RLC_Analysis.Windows
             FlowDocument oDoc = new FlowDocument();
             // Create the Table...
             Table table1 = new Table();
+
+
             oDoc.Blocks.Add(table1);
 
             // Set some global formatting properties for the table.
-            table1.CellSpacing = 10;
+            table1.CellSpacing = 0;
             table1.Background = Brushes.White;
             table1.BorderBrush = Brushes.Black;
 
-            int rang = 3 + circuit.elements.Where(e => e.type == ElementTypes.Inductor).ToList().Count;
+            int inductorsCount = circuit.elements.Where(e => e.type == ElementTypes.Inductor).ToList().Count;
+
+            int rang = 3 + inductorsCount;
             for (int x = 0; x < rang; x++)
             {
                 table1.Columns.Add(new TableColumn());
             }
 
+            //Elements in additional rows
+            List<int>[] AdditionalElements = new List<int>[inductorsCount];
+            int i = 0;
+            foreach (var ind in circuit.elements.Where(e => e.type == ElementTypes.Inductor))
+            {
+                switch (ind.number)
+                {
+                    case 1:
+                        AdditionalElements[i++] = new List<int> { -1, 1, 0};
+                        break;
+                    case 2:
+                        AdditionalElements[i++] = new List<int> { 0, -1, 1};
+                        break;
+                    case 3:
+                        AdditionalElements[i++] = new List<int> { 1, 0, 0 };
+                        break;
+                    case 4:
+                        AdditionalElements[i++] = new List<int> { 0, 1, 0 };
+                        break;
+                    case 5:
+                        AdditionalElements[i++] = new List<int> { 0, 0, 1 };
+                        break;
+                }
+            }
 
             // Create and add an empty TableRowGroup to hold the table's Rows.
             table1.RowGroups.Add(new TableRowGroup());
@@ -274,6 +327,21 @@ namespace RLC_Analysis.Windows
                     break;
             }
             currentRow.Cells.Add(new TableCell(new Paragraph(new Run("0"))));
+            if(inductorsCount > 0)
+            {
+                for(int it=0; it< inductorsCount; it++)
+                {
+                    currentRow.Cells.Add(new TableCell(new Paragraph(new Run(AdditionalElements[it].ElementAt(0).ToString()))));
+                }
+            }
+
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("|"))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("U1"))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("|"))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("    "))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("|"))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("E*Yвн"))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("|"))));
 
             //-------------------------------------------------------2 ROW-----------------------------------------------------------------//
             table1.RowGroups[0].Rows.Add(new TableRow());
@@ -294,25 +362,25 @@ namespace RLC_Analysis.Windows
             switch (circuit.elements.First(e => e.number == 1).type)
             {
                 case ElementTypes.Capacitor:
-                    element2 += "p" + valLabels[0].Content.ToString();
+                    element2 += "p+" + valLabels[0].Content.ToString();
                     break;
                 case ElementTypes.Inductor:
                     element2 += string.Empty;
                     break;
                 default:
-                    element2 += valLabels[0].Content.ToString();
+                    element2 += valLabels[0].Content.ToString() + "+";
                     break;
             }
             switch (circuit.elements.First(e => e.number == 4).type)
             {
                 case ElementTypes.Capacitor:
-                    element2 += "+p" + valLabels[3].Content.ToString();
+                    element2 += "p" + valLabels[3].Content.ToString();
                     break;
                 case ElementTypes.Inductor:
                     element2 += string.Empty;
                     break;
                 default:
-                    element2 += "+" + valLabels[3].Content.ToString();
+                    element2 += valLabels[3].Content.ToString();
                     break;
             }
             switch (circuit.elements.First(e => e.number == 2).type)
@@ -340,7 +408,21 @@ namespace RLC_Analysis.Windows
                     currentRow.Cells.Add(new TableCell(new Paragraph(new Run("-" + valLabels[1].Content.ToString()))));
                     break;
             }
+            if (inductorsCount > 0)
+            {
+                for (int it = 0; it < inductorsCount; it++)
+                {
+                    currentRow.Cells.Add(new TableCell(new Paragraph(new Run(AdditionalElements[it].ElementAt(1).ToString()))));
+                }
+            }
 
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("|"))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("U2"))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("|"))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("  =  "))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("|"))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("0"))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("|"))));
             //----------------------------------------------------3 ROW----------------------------------------------------------------//
             table1.RowGroups[0].Rows.Add(new TableRow());
             currentRow = table1.RowGroups[0].Rows[2];
@@ -385,6 +467,48 @@ namespace RLC_Analysis.Windows
                     break;
             }
             currentRow.Cells.Add(new TableCell(new Paragraph(new Run(element3))));
+            if (inductorsCount > 0)
+            {
+                for (int it = 0; it < inductorsCount; it++)
+                {
+                    currentRow.Cells.Add(new TableCell(new Paragraph(new Run(AdditionalElements[it].ElementAt(2).ToString()))));
+                }
+            }
+
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("|"))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("U3"))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("|"))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("    "))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("|"))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("0"))));
+            currentRow.Cells.Add(new TableCell(new Paragraph(new Run("|"))));
+            //-------------------------------------------------------4 ROW -------------------------------------------//
+
+            if (inductorsCount > 0)
+            {
+                for (int it = 0; it < inductorsCount; it++)
+                {
+                    table1.RowGroups[0].Rows.Add(new TableRow());
+                    currentRow = table1.RowGroups[0].Rows[3 + it];
+                    currentRow.Cells.Add(new TableCell(new Paragraph(new Run(AdditionalElements[it].ElementAt(0).ToString()))));
+                    currentRow.Cells.Add(new TableCell(new Paragraph(new Run(AdditionalElements[it].ElementAt(1).ToString()))));
+                    currentRow.Cells.Add(new TableCell(new Paragraph(new Run(AdditionalElements[it].ElementAt(2).ToString()))));
+
+                    for(int k = 0; k < inductorsCount; k++)
+                    {
+                        currentRow.Cells.Add(new TableCell(new Paragraph(new Run("-pL"))));
+                    }
+
+                    currentRow.Cells.Add(new TableCell(new Paragraph(new Run("|"))));
+                    currentRow.Cells.Add(new TableCell(new Paragraph(new Run("L"))));
+                    currentRow.Cells.Add(new TableCell(new Paragraph(new Run("|"))));
+                    currentRow.Cells.Add(new TableCell(new Paragraph(new Run("    "))));
+                    currentRow.Cells.Add(new TableCell(new Paragraph(new Run("|"))));
+                    currentRow.Cells.Add(new TableCell(new Paragraph(new Run("0"))));
+                    currentRow.Cells.Add(new TableCell(new Paragraph(new Run("|"))));
+                }
+            }
+            
             ROKB.Content = oDoc;
         }
     }
