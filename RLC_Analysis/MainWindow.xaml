@@ -6,28 +6,34 @@
         xmlns:local="clr-namespace:RLC_Analysis"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="RLC-analysis" Height="150" Width="460">
+        Title="RLC-analysis" Height="357.6" Width="634">
 
     <Window.CommandBindings>
         <CommandBinding Command="Open" Executed="Open_Executed" />
-        <!--<CommandBinding Command="Save" Executed="Save_Executed" />-->
+        <CommandBinding Command="Save" Executed="Save_Executed" />
     </Window.CommandBindings>
 
     <DockPanel>
         <ToolBar DockPanel.Dock="Top">
             <Button Command="Open">Open</Button>
-            <Button Name="SaveButton" Command="Save">Save</Button>
+            <Button Name="SaveButton" Command="Save">About</Button>
         </ToolBar>
         <Grid>
-            <ComboBox Name="learningVariants" Height="20" SelectionChanged="learningVariants_SelectionChanged" VerticalAlignment="Center" Margin="0,0,0,30">
+            <!--<ComboBox Name="learningVariants" Height="20" SelectionChanged="learningVariants_SelectionChanged" VerticalAlignment="Center" Margin="0,0,0,30">
                 <TextBlock>Параллельное соединение элементов</TextBlock>
                 <TextBlock>Последовательное соединение элементов</TextBlock>
                 <TextBlock>Задачи по электротехнике</TextBlock>
                 <TextBlock>Задачи с логическими схемами</TextBlock>
                 <TextBlock>Моделирование электрической схемы</TextBlock>
                 <TextBlock>Математические модели электрических схем</TextBlock>
-            </ComboBox>
-            <Button Name="Next_btn" Content="Далее" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="Next_btn_Click" IsDefault="True" RenderTransformOrigin="0,0" BorderThickness="1"/>
+            </ComboBox>-->
+            <!--<Button Name="Next_btn" Content="Далее" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="Next_btn_Click" IsDefault="True" RenderTransformOrigin="0,0" BorderThickness="1"/>-->
+            <Button Content="                                 Параллельное соединение элементов" HorizontalAlignment="Left" Margin="115,33,0,0" VerticalAlignment="Top" Width="382" Click="Button_Click"/>
+            <Button Content="                             Последовательное соединение элементов" HorizontalAlignment="Left" Margin="115,73,0,0" VerticalAlignment="Top" Width="382" Click="Button_Click_1"/>
+            <Button Content="                                          Задачи по электротехнике" HorizontalAlignment="Left" Margin="115,113,0,0" VerticalAlignment="Top" Width="382" Click="Button_Click_3"/>
+            <Button Content="                                      Задачи с логическими схемами" HorizontalAlignment="Left" Margin="115,153,0,0" VerticalAlignment="Top" Width="382" Click="Button_Click_4"/>
+            <Button Content="                                 Моделирование электрической схемы" HorizontalAlignment="Left" Margin="115,193,0,0" VerticalAlignment="Top" Width="382" Click="Button_Click_5"/>
+            <Button Content="                          Математические модели электрических схем" HorizontalAlignment="Left" Margin="115,233,0,0" VerticalAlignment="Top" Width="382" Click="Button_Click_6"/>
         </Grid>
     </DockPanel>
 </Window>

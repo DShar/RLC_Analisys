@@ -14,11 +14,13 @@
                         <ColumnDefinition Width="16*"/>
                         <ColumnDefinition Width="181*"/>
                     </Grid.ColumnDefinitions>
-
+                    <Image HorizontalAlignment="Left" Height="204" Margin="10,30,0,0" VerticalAlignment="Top" Width="534" Grid.ColumnSpan="2" Source="C:\Users\User\source\repos\RLC_Analysis\RLC_Analysis\images\OKB.PNG"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="ROKB" Header="РОКБ">
-                <Grid Background="White"/>
+                <Grid Background="White">
+                    <Image HorizontalAlignment="Left" Height="204" Margin="10,30,0,0" VerticalAlignment="Top" Width="534" Source="C:\Users\User\source\repos\RLC_Analysis\RLC_Analysis\images\ROKB.PNG"/>
+                </Grid>
             </TabItem>
         </TabControl>
 

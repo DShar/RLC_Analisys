@@ -232,7 +232,7 @@ namespace RLC_Analysis.Windows
             currentRow.Cells.Add(new TableCell(new Paragraph(new Run("0"))));
             currentRow.Cells.Add(new TableCell(new Paragraph(new Run("|"))));
            
-            OKB.Content = oDoc;
+           // OKB.Content = oDoc;
         }
 
 
@@ -509,7 +509,7 @@ namespace RLC_Analysis.Windows
                 }
             }
             
-            ROKB.Content = oDoc;
+            //ROKB.Content = oDoc;
         }
     }
 }

@@ -231,5 +231,9 @@ namespace RLC_Analysis.Windows
             }
         }
 
+        private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+
+        }
     }
 }

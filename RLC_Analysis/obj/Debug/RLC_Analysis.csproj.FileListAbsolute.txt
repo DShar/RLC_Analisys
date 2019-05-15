@@ -13,7 +13,6 @@ c:\users\user\source\repos\RLC_Analysis\RLC_Analysis\obj\Debug\RLC_Analysis.cspr
 c:\users\user\source\repos\RLC_Analysis\RLC_Analysis\obj\Debug\RLC_Analysis.exe
 c:\users\user\source\repos\RLC_Analysis\RLC_Analysis\obj\Debug\RLC_Analysis.pdb
 C:\Users\User\source\repos\RLC_Analysis\RLC_Analysis\obj\Debug\App.baml
-C:\Users\User\source\repos\RLC_Analysis\RLC_Analysis\obj\Debug\RLC_Analysis.exe.config
 C:\Users\User\source\repos\RLC_Analysis\RLC_Analysis\bin\Debug\Mindscape.WpfDiagramming.FlowDiagrams.dll
 C:\Users\User\source\repos\RLC_Analysis\RLC_Analysis\bin\Debug\Mindscape.WpfDiagramming.Foundation.Design.10.dll
 C:\Users\User\source\repos\RLC_Analysis\RLC_Analysis\bin\Debug\Mindscape.WpfDiagramming.Foundation.Design.dll
@@ -83,3 +82,5 @@ C:\Users\User\source\repos\RLC_Analysis\RLC_Analysis\obj\Debug\Windows\MathModel
 C:\Users\User\source\repos\RLC_Analysis\RLC_Analysis\obj\Debug\Windows\MathModeling.baml
 C:\Users\User\source\repos\RLC_Analysis\RLC_Analysis\obj\Debug\Windows\MatrixWindow.g.cs
 C:\Users\User\source\repos\RLC_Analysis\RLC_Analysis\obj\Debug\Windows\MatrixWindow.baml
+C:\Users\User\source\repos\RLC_Analysis\RLC_Analysis\obj\Debug\Windows\UserGuideWindow.g.cs
+C:\Users\User\source\repos\RLC_Analysis\RLC_Analysis\obj\Debug\Windows\UserGuideWindow.baml

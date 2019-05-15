@@ -30,19 +30,23 @@ namespace RLC_Analysis
 
         private void Save_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            SaveFileDialog dlg = new SaveFileDialog();
-            dlg.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-            dlg.DefaultExt = ".xml";
-            dlg.Filter = "XML files (*.xml)|*.xml|All files (*.*)|*.*";
+            //SaveFileDialog dlg = new SaveFileDialog();
+            //dlg.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+            //dlg.DefaultExt = ".pdf";
+            ////dlg.Filter = "XML files (*.xml)|*.xml|All files (*.*)|*.*";
 
-            if (dlg.ShowDialog() ?? false)
-            {
-                using (XmlWriter writer = XmlWriter.Create(dlg.FileName))
-                {
-                   // SimpleDiagramXmlSerializer ser = CreateSerializer();
-                   // ser.Serialize(writer, (SimpleDiagramModel)(ds.Diagram));
-                }
-            }
+            //if (dlg.ShowDialog() ?? false)
+            //{
+            //    using (XmlWriter writer = XmlWriter.Create(dlg.FileName))
+            //    {
+            //        // SimpleDiagramXmlSerializer ser = CreateSerializer();
+            //        // ser.Serialize(writer, (SimpleDiagramModel)(ds.Diagram));
+            //    }
+            //}
+
+            Window win;
+            win = new UserGuide();
+            win.Show();
         }
 
         private void Open_Executed(object sender, ExecutedRoutedEventArgs e)
@@ -67,33 +71,93 @@ namespace RLC_Analysis
 
         }
 
-        private void Next_btn_Click(object sender, RoutedEventArgs e)
+        //private void Next_btn_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Window win;
+        //    switch (learningVariants.SelectedIndex)
+        //    {
+        //        case 0:
+        //            win = new ParallelCircuitWindow();
+        //            break;
+        //        case 1:
+        //            win = new SeriesCircuitWindow();
+        //            break;
+        //        case 2:
+        //            win = new ElectronicTasksWindow();
+        //            break;
+        //        case 3:
+        //            win = new LogicSchemeTestWindow();
+        //            break;
+        //        case 4:
+        //            win = new CustomCircuit();
+        //            break;
+        //        case 5:
+        //            win = new MathModeling();
+        //            break;
+        //        default:
+        //            win = new MainWindow();
+        //            break;
+        //    }
+        //    win.Show();
+        //    this.Close();
+        //}
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             Window win;
-            switch (learningVariants.SelectedIndex)
-            {
-                case 0:
-                    win = new ParallelCircuitWindow();
-                    break;
-                case 1:
-                    win = new SeriesCircuitWindow();
-                    break;
-                case 2:
-                    win = new ElectronicTasksWindow();
-                    break;
-                case 3:
-                    win = new LogicSchemeTestWindow();
-                    break;
-                case 4:
-                    win = new CustomCircuit();
-                    break;
-                case 5:
-                    win = new MathModeling();
-                    break;
-                default:
-                    win = new MainWindow();
-                    break;
-            }
+
+            win = new ParallelCircuitWindow();
+
+            win.Show();
+            this.Close();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Window win;
+
+            win = new SeriesCircuitWindow();
+
+            win.Show();
+            this.Close();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            Window win;
+
+            win = new ElectronicTasksWindow();
+
+            win.Show();
+            this.Close();
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            Window win;
+
+            win = new LogicSchemeTestWindow();
+
+            win.Show();
+            this.Close();
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            Window win;
+
+            win = new CustomCircuit();
+
+            win.Show();
+            this.Close();
+        }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+            Window win;
+
+            win = new MathModeling();
+
             win.Show();
             this.Close();
         }
